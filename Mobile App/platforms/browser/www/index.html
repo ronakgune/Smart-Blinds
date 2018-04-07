@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Smart Blinds App</title>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <script type="text/javascript" src="cordova.js"></script>
+    <div align="center">
+                <h1>Choose the mode</h1>
+                <p><button class="button" type="submit" id="manual-btn">Manual</button>
+                    <p><button class="button" type="submit" id="automatic-btn">Automatic</button>
+                        <p>
+                            <h1>Control the Blinds</h1>
+                            <p><button class="button" type="submit" id="open-btn">Open</button>
+                                <p><button class="button" type="submit" id="close-btn">Close</button>
+                                    <p><button class="button" type="submit" id="stop-btn">Stop</button>
+    </div>
+    <div align="center"><h2>Current Status:</h2></div>
+    <div id="div1" align="center"><h2></h2></div>
+    <script>
+           /* $(window).ready(function()
+            {
+                $("button").click(function()
+                {
+                    $("#div1").load("http://ronakgune.com/smart/smart.txt");
+                });
+            });*/
+        $('#manual-btn').on('click', function(e) 
+        {
+            $.ajax(
+            {
+                url     : 'http://ronakgune.com/smart/smart.php',
+                method  : 'post',
+                data    : 'manual',
+                success : function( response ) {
+                    $("#div1").load("http://ronakgune.com/smart/smart.txt");
+                }
+            });
+        });   
+        $('#automatic-btn').on('click', function(e) 
+        {
+            $.ajax(
+            {
+                url     : 'http://ronakgune.com/smart/smart.php',
+                method  : 'post',
+                data    : 'automatic',
+                success : function( response ) {
+                    $("#div1").load("http://ronakgune.com/smart/smart.txt");
+                }
+            });
+        }); 
+        $('#open-btn').on('click', function(e) 
+        {
+            $.ajax(
+            {
+                url     : 'http://ronakgune.com/smart/smart.php',
+                method  : 'post',
+                data    : 'open',
+                success : function( response ) {
+                    $("#div1").load("http://ronakgune.com/smart/smart.txt");
+                }
+            });
+        });
+    
+        $('#close-btn').on('click', function(e) 
+        {
+            $.ajax(
+            {
+                url     : 'http://ronakgune.com/smart/smart.php',
+                method  : 'post',
+                data    : 'close',
+                success : function( response ) {
+                    $("#div1").load("http://ronakgune.com/smart/smart.txt");
+                }
+            });
+        });
+        $('#stop-btn').on('click', function(e) 
+        {
+            $.ajax(
+            {
+                url     : 'http://ronakgune.com/smart/smart.php',
+                method  : 'post',
+                data    : 'stop',
+                success : function( response ) {
+                    $("#div1").load("http://ronakgune.com/smart/smart.txt");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
